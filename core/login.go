@@ -21,7 +21,6 @@ type Claims struct {
 
 func (core *Core) LoginPostHandler(c *gin.Context) { // /login post
 	color.Red("/login post")
-	fmt.Println("컨텍스트 :")
 
 	var authData models.User
 
@@ -57,22 +56,18 @@ func (core *Core) LoginPostHandler(c *gin.Context) { // /login post
 	AccessTokenString, error := AccessToken.SignedString([]byte("secret"))
 	fmt.Println("tokentString :", AccessTokenString)
 	if error != nil {
-		fmt.Println("/login 포스트 에러")
 		fmt.Println(error)
 	}
 	c.Writer.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(c.Writer).Encode(JwtToken{Token: AccessTokenString})
-	fmt.Println("/login 포스트 성공")
 }
 /*
 		test := c.MustGet("model")
 		test1 := test.(*store.UserStorage)
 		if  a := <-test1.Get(authData.Id); a.Data != nil {
-			fmt.Println("낫닐")
 			fmt.Println(a.Data)
 		}
 		if b := <-test1.Insert(authData.Id,authData.Password); b.Data != nil {
-			fmt.Println("낫닐#2")
 			fmt.Println(b.Data)
 
 		}

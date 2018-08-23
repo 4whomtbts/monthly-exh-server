@@ -46,7 +46,6 @@ func (api *API) ApiHandler(next gin.HandlerFunc) gin.HandlerFunc {
 			Core: api.core,
 		}
 		c.Set("context", context.Core)
-		//TODO 인증 안 됬으면 return
 		next(c)
 	})
 }
@@ -59,19 +58,15 @@ func (api *API) ApiAuthRequired(next gin.HandlerFunc) gin.HandlerFunc {
 			Core: api.core,
 		}
 		c.Set("context", *context.Core)
-		accessToken := c.Request.Header.Get("access-token")
-		refreshToken :=c.Request.Header.Get("access-token")
-		fmt.Println("넘어온 토큰",accessToken)
-		fmt.Println("넘어온 토큰",refreshToken)
+//		accessToken := c.Request.Header.Get("access-token")
+//		refreshToken :=c.Request.Header.Get("access-token")
 		tokenHeader := c.Request.Header.Get(HEADER_AUTH)
 		if tokenHeader == ""{
 			NewFailJsonResponse(c,403,"unauthorized")
-			fmt.Println("접근권한 없음")
 			return;
 		}
 
 		api.decryptToken(c,tokenHeader)
-		fmt.Sprintf("토큰 값 :",tokenHeader)
 		//TODO 인증 안 됬으면 return
 		next(c)
 	})
@@ -101,14 +96,10 @@ func (api *API) AuditToken(c *gin.Context, permission int) (*models.AppError){
 	c.Set("context", *context.Core)
 
 	accessToken := c.Request.Header.Get("access-token")
-	refreshToken :=c.Request.Header.Get("refresh-token")
-	fmt.Println("넘어온 토큰",accessToken)
-	fmt.Println("넘어온 토큰",refreshToken)
-
+//	refreshToken :=c.Request.Header.Get("refresh-token")
 	tokenHeader := c.Request.Header.Get(HEADER_AUTH)
 
 	if tokenHeader == ""{
-		fmt.Println("접근권한 없음")
 		return models.NewAppError("api.AuditToken",models.TOKEN_INVALID,nil,"",401)
 	}
 
@@ -160,12 +151,10 @@ func (api *API) decryptToken(gc *gin.Context, token string) (jwt.MapClaims) {
 			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 				return nil, fmt.Errorf("token.signing.is.invalid")
 			}
-			fmt.Println("암호키리턴")
 			return []byte(core.GLOBAL_SALT), nil
 		})
 
 		if err != nil {
-			fmt.Println("토큰에러 발생")
 			WebApiErrorLog("api.decryptToken","token.is.invalid", 10)
 			NewFailJsonResponse(gc, http.StatusInternalServerError, models.TOKEN_INVALID)
 			return nil
@@ -182,7 +171,6 @@ func (api *API) decryptToken(gc *gin.Context, token string) (jwt.MapClaims) {
 			return claims
 		}
 	} else {
-		fmt.Println("유효하지 않은 검증")
 		NewFailJsonResponse(gc, http.StatusInternalServerError, models.TOKEN_INVALID)
 	}
 	return nil

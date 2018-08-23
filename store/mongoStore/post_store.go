@@ -56,7 +56,6 @@ func (ps MongoPostStore) Save(post *models.GeneralArticle) store.StoreChannel {
 				fmt.Println(err)
 				result.Err = models.NewAppError("api.post_store.save","failed.to.getGalleryRef",nil,"",500)
 			}
-			fmt.Println("갤래프 ",num)
 		}
 
 		if err != nil {

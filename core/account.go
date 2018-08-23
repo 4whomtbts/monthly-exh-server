@@ -55,9 +55,7 @@ func (c *Core) GetUserExistenceById(id string) bool {
 func (c *Core) LoginById(id, password string) ( map[string]interface{}, *models.AppError) {
 
 	result := NewResult("", nil)
-	fmt.Println("로그인 바이 아이디")
 	if rst := <-c.Srv.Store.User().Get(id); rst.Err != nil {
-		fmt.Println("유저 찾지못함")
 		result.Err = models.NewAppError("loginById", "api.user.login.invalid", nil, "user.is.not.found", http.StatusNotFound)
 		return nil, result.Err;
 	} else {
@@ -93,7 +91,6 @@ func (c *Core) LoginById(id, password string) ( map[string]interface{}, *models.
 func (c *Core) CreateToken(user *models.User, tokenType string) (data interface{}, AppErr *models.AppError) {
 
 	result := NewResult("", nil)
-	fmt.Println("크리에잇 토큰")
 	NewToken := jwt.New(jwt.GetSigningMethod("HS256"))
 	NewToken.Claims = &Claims{
 		&jwt.StandardClaims{

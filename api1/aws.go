@@ -37,7 +37,6 @@ func (api *API) GallaryImageUpdate(c *gin.Context) {
 	})
 	str, err := req.Presign(15 * time.Minute)
 	if err != nil {
-		fmt.Println("에라 ",err)
 		return;
 	}
 
@@ -59,7 +58,6 @@ func (api *API) GallaryArticleImgUpload(c *gin.Context) {
 	})
 	str, err := req.Presign(15 * time.Minute)
 	if err != nil {
-		fmt.Println("에라 ",err)
 		return;
 	}
 
@@ -80,7 +78,6 @@ func (api *API) ImgDownload(c *gin.Context) {
 	})
 	str, err := req.Presign(15 * time.Minute)
 	if err != nil {
-		fmt.Println("에라 ",err)
 		return;
 	}
 
@@ -94,15 +91,12 @@ func (api *API) ImgDownload(c *gin.Context) {
 ctx, _ := c.Get("context")
 var ctx0 core.Core = ctx.(core.Core)
 
-fmt.Println("이미지업로드 요청")
 files  , err := c.FormFile("file")
 if err != nil {
 	fmt.Println(err)
 }
 
 file , err := files.Open()
-fmt.Println("콘텐트 헤더 : ",c.GetHeader("Content-Type"))
-fmt.Println("콘텐트 헤더 : ",files.Header.Get("Content-Type"))
 defer file.Close()
 
  //var regExp = regexp.MustCompile(`/^data:text\/plain;base64,/`)
