@@ -1,0 +1,17 @@
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T05:51:22.957+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T05:53:19.003+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T05:53:33.777+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T05:54:03.199+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:01:49.607+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:04:26.539+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:10:04.888+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:13:34.408+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:30:56.123+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:33:39.710+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:34:28.943+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:35:02.443+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:37:07.046+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:49:14.645+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:51:09.712+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:54:20.095+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
+{"level":"\u001b[34mINFO\u001b[0m","time":"2018-08-24T06:55:05.492+0900","called_from":"mlog/module.go:61","msg":"서버가동"}
